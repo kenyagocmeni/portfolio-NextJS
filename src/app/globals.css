@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Genel Stil Ayarları */
+body {
+  @apply text-white overflow-hidden; /* Taşmayı engelliyoruz */
+}
+
+/* Arkaplan ve Metin Geçişi */
+.ready section {
+  @apply opacity-100; /* Geçiş sonrası tamamen görünür */
+}
+
+section {
+  @apply min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed;
+  opacity: 0; /* Başlangıçta tamamen görünmez */
+  filter: grayscale(100%) contrast(2) brightness(0.6); /* Siyah beyaz ve kontrast artırılmış */
+  transition: opacity 2s ease; /* Yalnızca opaklık için geçiş */
+  background-image: url('/semo.jpg'); /* Arkaplan resmi */
+}
+
+/* Metin Geçiş Efektleri */
+h1, p {
+  @apply opacity-0 transition-opacity duration-1000; /* Başlangıçta görünmez */
+}
+
+.ready h1, .ready p {
+  @apply opacity-100; /* Geçiş sonrası tamamen görünür */
+}
